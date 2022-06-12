@@ -1,7 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - 我的全新 Hugo 网站</title>
+        <title>Categories - Category - Visaji&#39;s Blog</title>
         <link>https://visajiandrevv.github.io/categories/</link>
-        <description>Categories - Category - 我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://visajiandrevv.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+        <description>Categories - Category - Visaji&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Sat, 11 Jun 2022 16:56:08 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>notes</title>
+    <link>https://visajiandrevv.github.io/categories/notes/</link>
+    <pubDate>Sat, 11 Jun 2022 16:56:08 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/categories/notes/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
