@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>virtual machine - Tag - Visaji&#39;s Blog</title>
+        <link>https://visajiandrevv.github.io/tags/virtual-machine/</link>
+        <description>virtual machine - Tag - Visaji&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/virtual-machine/" rel="self" type="application/rss+xml" /><item>
+    <title>虚拟机上搭建多节点的linux环境</title>
+    <link>https://visajiandrevv.github.io/posts/blog_vm_1/</link>
+    <pubDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_vm_1/</guid>
+    <description><![CDATA[一、下载 这里建议直接到官网进行下载，或者在网上找别人分享的资源也可以 1、VMware下载 官网：https://customerconnect]]></description>
+</item>
+</channel>
+</rss>
