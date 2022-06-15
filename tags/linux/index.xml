@@ -4,7 +4,15 @@
         <link>https://visajiandrevv.github.io/tags/linux/</link>
         <description>linux - Tag - Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 15 Jun 2022 11:57:12 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>常用linux命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_linux/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:12 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>虚拟机上搭建多节点的linux环境</title>
     <link>https://visajiandrevv.github.io/posts/blog_vm_1/</link>
     <pubDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</pubDate>

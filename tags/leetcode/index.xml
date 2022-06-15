@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>leetcode - Tag - Visaji&#39;s Blog</title>
+        <link>https://visajiandrevv.github.io/tags/leetcode/</link>
+        <description>leetcode - Tag - Visaji&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/leetcode/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode题解</title>
+    <link>https://visajiandrevv.github.io/posts/blog_leetcode_1/</link>
+    <pubDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_leetcode_1/</guid>
+    <description><![CDATA[leetcode_167_middle 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：[]]></description>
+</item>
+</channel>
+</rss>

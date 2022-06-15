@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>git - Tag - Visaji&#39;s Blog</title>
+        <link>https://visajiandrevv.github.io/tags/git/</link>
+        <description>git - Tag - Visaji&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>常用git命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_git/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

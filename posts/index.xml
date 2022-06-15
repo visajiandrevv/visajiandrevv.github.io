@@ -4,7 +4,39 @@
         <link>https://visajiandrevv.github.io/posts/</link>
         <description>All Posts | Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode题解</title>
+    <link>https://visajiandrevv.github.io/posts/blog_leetcode_1/</link>
+    <pubDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_leetcode_1/</guid>
+    <description><![CDATA[leetcode_167_middle 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：[]]></description>
+</item>
+<item>
+    <title>常用eclipse命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_eclipse/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:33 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_eclipse/</guid>
+    <description><![CDATA[一、快捷键 查看所有快捷键位置: Window/Preferences/Keys 字体缩放 放大: ctrl + = 缩小: ctrl + - 格式对齐 ctrl + shift + f 整理包 ctrl + shift + o]]></description>
+</item>
+<item>
+    <title>常用git命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_git/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>常用linux命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_linux/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:12 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>虚拟机上搭建多节点的linux环境</title>
     <link>https://visajiandrevv.github.io/posts/blog_vm_1/</link>
     <pubDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</pubDate>
