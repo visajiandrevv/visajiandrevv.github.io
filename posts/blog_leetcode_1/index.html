@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>LeetCode题解 - Visaji&#39;s Blog</title><meta name="Description" content="Welcome to my Blog"><meta property="og:title" content="LeetCode题解" />
-<meta property="og:description" content="leetcode_167_middle 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：[" />
+<meta property="og:description" content="leetcode_167_middle &lt;leetcode_link&gt; 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://visajiandrevv.github.io/posts/blog_leetcode_1/" /><meta property="og:image" content="https://visajiandrevv.github.io/img/logo.jpeg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-15T12:11:40+08:00" />
@@ -15,11 +15,11 @@
 <meta name="twitter:image" content="https://visajiandrevv.github.io/img/logo.jpeg"/>
 
 <meta name="twitter:title" content="LeetCode题解"/>
-<meta name="twitter:description" content="leetcode_167_middle 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：["/>
+<meta name="twitter:description" content="leetcode_167_middle &lt;leetcode_link&gt; 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出："/>
 <meta name="application-name" content="Visaji&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Visaji&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_leetcode_1/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_cmd_eclipse/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_leetcode_1/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_cmd_eclipse/" /><link rel="next" href="https://visajiandrevv.github.io/posts/blog_basic_java/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_1\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  424 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  727 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_1\/","datePublished": "2022-06-15T12:11:40+08:00","dateModified": "2022-06-15T12:11:40+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-15">2022-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;424 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-15">2022-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;727 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -115,10 +115,12 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#leetcode_167_middle">leetcode_167_middle</a></li>
+    <li><a href="#leetcode_633_middle">leetcode_633_middle</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="leetcode_167_middle">leetcode_167_middle</h2>
+<p><a href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
 <ul>
 <li>
 <p>问题描述<br>
@@ -166,9 +168,52 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h2 id="leetcode_633_middle">leetcode_633_middle</h2>
+<p><a href="https://leetcode.cn/problems/sum-of-square-numbers/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 $a^{2} + b^{2} = c$</p>
+<pre tabindex="0"><code>输入：c = 5
+输出：true
+解释：1 * 1 + 2 * 2 = 5
+</code></pre></li>
+<li>
+<p>解法：<strong>双指针算法</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>该题是寻找从0-sqrt(c)的满足平方和的两个整数a,b。隐含条件是 0-sqrt(c)为<strong>递增有序数组</strong>，因此可以用双指针算法。</p>
+</blockquote>
+<blockquote>
+<p>题目默认的范围是0 &lt;= c &lt;= $2^{31} - 1$,在int范围之内，但是如果定义i,j为int型会有样例<code>c=2147483600</code>不通过，这是因为存在<code>a=297，b=46340</code>，使得平方和<code>2147483809</code>超过了int范围，因此需要使用long型。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">judgeSquareSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//开根号转long自动取整,防止溢出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">long</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">,</span><span class="n">j</span><span class="o">=(</span><span class="kt">long</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">c</span><span class="o">*</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="o">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>	
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">j</span><span class="o">==</span><span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="s">&#34;/&#34;</span><span class="o">+</span> <span class="n">j</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">j</span><span class="o">&gt;</span><span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">j</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">i</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>	
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>   	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>	
+</span></span></code></pre></div></li>
+</ul>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener noreffer">https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/</a></li>
+<li><a href="https://leetcode.cn/" target="_blank" rel="noopener noreffer">https://leetcode.cn/</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -191,7 +236,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/blog_cmd_eclipse/" class="prev" rel="prev" title="常用eclipse命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>常用eclipse命令</a></div>
+    <div class="post-nav"><a href="/posts/blog_cmd_eclipse/" class="prev" rel="prev" title="常用eclipse命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>常用eclipse命令</a>
+            <a href="/posts/blog_basic_java/" class="next" rel="next" title="java基础">java基础<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
