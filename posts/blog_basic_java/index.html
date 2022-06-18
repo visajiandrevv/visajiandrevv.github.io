@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/"
-        },"genre": "posts","keywords": "java","wordcount":  147 ,
+        },"genre": "posts","keywords": "java","wordcount":  189 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/","datePublished": "2022-06-16T13:04:08+08:00","dateModified": "2022-06-16T13:04:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/basics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>basics</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;147 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;189 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -116,6 +116,8 @@
   <ul>
     <li><a href="#整型数据范围">整型数据范围</a></li>
     <li><a href="#数学公式">数学公式</a></li>
+    <li><a href="#string和char互转">String和char[]互转</a></li>
+    <li><a href="#hashset">hashSet</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="整型数据范围">整型数据范围</h2>
@@ -128,6 +130,24 @@ long: -9223372036854775808 ~ 9223372036854775807    (8个字节，$-2^{63}至(2^
 <h2 id="数学公式">数学公式</h2>
 <blockquote>
 <p>调用Math函数</p>
+</blockquote>
+<h2 id="string和char互转">String和char[]互转</h2>
+<ul>
+<li>char[] to String
+<blockquote>
+<p>String s = String.valueOf(char[])<br>
+String s = new String(char[])</p>
+</blockquote>
+</li>
+<li>String to char
+<blockquote>
+<p>char[] c = s.toCharArray()</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="hashset">hashSet</h2>
+<blockquote>
+<p>只能为引用类型</p>
 </blockquote>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -154,8 +174,7 @@ long: -9223372036854775808 ~ 9223372036854775807    (8个字节，$-2^{63}至(2^
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/visajiandrevv" target="_blank">VisajiAndrevv</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/visajiandrevv" target="_blank">VisajiAndrevv</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

@@ -10,7 +10,7 @@
     <pubDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</pubDate>
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_leetcode_1/</guid>
-    <description><![CDATA[leetcode_167_middle &lt;leetcode_link&gt; 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9 输出：]]></description>
+    <description><![CDATA[双指针 leetcode_167_middle &lt;leetcode_link&gt; 问题描述 给定非递减顺序排列的整数数组 numbers 和目标数 target ，找出相加满足 target 的两个整数下标，答案唯一且元素不重复 输入：numbers = [2,7,11,15], target = 9]]></description>
 </item>
 </channel>
 </rss>
