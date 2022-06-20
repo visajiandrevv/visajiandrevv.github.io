@@ -19,7 +19,7 @@
 <meta name="application-name" content="Visaji&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Visaji&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_basic_java/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_leetcode_1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_basic_java/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_leetcode_1/" /><link rel="next" href="https://visajiandrevv.github.io/posts/blog_leetcode_2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/"
-        },"genre": "posts","keywords": "java","wordcount":  189 ,
+        },"genre": "posts","keywords": "java","wordcount":  325 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/","datePublished": "2022-06-16T13:04:08+08:00","dateModified": "2022-06-16T13:04:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/basics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>basics</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;189 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;325 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -118,6 +118,11 @@
     <li><a href="#数学公式">数学公式</a></li>
     <li><a href="#string和char互转">String和char[]互转</a></li>
     <li><a href="#hashset">hashSet</a></li>
+    <li><a href="#自定义sort排序函数">自定义sort排序函数</a>
+      <ul>
+        <li><a href="#二维数组">二维数组</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="整型数据范围">整型数据范围</h2>
@@ -149,6 +154,38 @@ String s = new String(char[])</p>
 <blockquote>
 <p>只能为引用类型</p>
 </blockquote>
+<h2 id="自定义sort排序函数">自定义sort排序函数</h2>
+<ul>
+<li>类数组
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//按二维数组intervals第二位升序排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">intervals</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">});</span>
+</span></span></code></pre></div></li>
+<li>集合
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">T</span> <span class="n">o1</span><span class="o">,</span> <span class="n">T</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">});</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="二维数组">二维数组</h3>
+<p>二维数组本质上也是个一维数组，但该一维数组的每个元素又都是一个一维数组。</p>
+<ul>
+<li>初始化
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="c1">//静态初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">[][]</span> <span class="n">a</span><span class="o">={{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">},{</span><span class="n">4</span><span class="o">,</span><span class="n">5</span><span class="o">,</span><span class="n">6</span><span class="o">,</span><span class="n">7</span><span class="o">},{</span><span class="n">8</span><span class="o">,</span><span class="n">9</span><span class="o">,</span><span class="n">10</span><span class="o">,</span><span class="n">11</span><span class="o">}};</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//动态初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span><span class="o">[][]</span> <span class="n">b</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">10</span><span class="o">][</span><span class="n">10</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="o">[</span><span class="n">0</span><span class="o">]=</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&#34;zahngsan&#34;</span><span class="o">,</span><span class="s">&#34;lisi&#34;</span><span class="o">,</span><span class="s">&#34;wangwu&#34;</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="o">[</span><span class="n">1</span><span class="o">]=</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&#34;java&#34;</span><span class="o">,</span><span class="s">&#34;python&#34;</span><span class="o">,</span><span class="s">&#34;c++&#34;</span><span class="o">};</span>
+</span></span></code></pre></div></li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -170,7 +207,8 @@ String s = new String(char[])</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/blog_leetcode_1/" class="prev" rel="prev" title="LeetCode题解"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LeetCode题解</a></div>
+    <div class="post-nav"><a href="/posts/blog_leetcode_1/" class="prev" rel="prev" title="LeetCode题解_双指针"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LeetCode题解_双指针</a>
+            <a href="/posts/blog_leetcode_2/" class="next" rel="next" title="LeetCode题解_贪心">LeetCode题解_贪心<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

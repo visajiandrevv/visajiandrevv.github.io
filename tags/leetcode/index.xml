@@ -4,8 +4,16 @@
         <link>https://visajiandrevv.github.io/tags/leetcode/</link>
         <description>leetcode - Tag - Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/leetcode/" rel="self" type="application/rss+xml" /><item>
-    <title>LeetCode题解</title>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Sun, 19 Jun 2022 17:34:37 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/leetcode/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode题解_贪心</title>
+    <link>https://visajiandrevv.github.io/posts/blog_leetcode_2/</link>
+    <pubDate>Sun, 19 Jun 2022 17:34:37 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_leetcode_2/</guid>
+    <description><![CDATA[贪心 leetcode_455_easy &lt;leetcode_link&gt; 问题描述 给胃口值为g[i]的孩子i分配尺寸为s[j]的饼干j，s[j] &gt;= g[i]满足分配条件。每个孩子最多一块饼干，求分配孩子的最大]]></description>
+</item>
+<item>
+    <title>LeetCode题解_双指针</title>
     <link>https://visajiandrevv.github.io/posts/blog_leetcode_1/</link>
     <pubDate>Wed, 15 Jun 2022 12:11:40 &#43;0800</pubDate>
     <author>VisajiAndrevv</author>
