@@ -10,7 +10,7 @@
     <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[ssh克隆 git clone ssh://git@[host]:[port]/path/xxx.git]]></description>
 </item>
 </channel>
 </rss>

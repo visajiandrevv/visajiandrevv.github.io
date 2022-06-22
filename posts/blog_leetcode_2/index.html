@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_2\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  734 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  1118 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_2\/","datePublished": "2022-06-19T17:34:37+08:00","dateModified": "2022-06-19T17:34:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_贪心</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-19">2022-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;734 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-19">2022-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1118 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -118,6 +118,7 @@
       <ul>
         <li><a href="#leetcode_455_easy">leetcode_455_easy</a></li>
         <li><a href="#leetcode_435_middle">leetcode_435_middle</a></li>
+        <li><a href="#leetcode_452_middle">leetcode_452_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -235,6 +236,56 @@
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">intervals</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_452_middle">leetcode_452_middle</h3>
+<p><a href="https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/description/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+<code>XY</code>平面上的气球用整数数组<code> points </code>表示，其中<code>points[i] = [xstart, xend] </code>表示水平直径在<code> xstart </code>和<code> xend</code>之间的气球。</p>
+<p>在坐标<code>x</code>处射出一支箭，若满足 <code> xstart ≤ x ≤ xend</code>，则该气球会被引爆，弓箭可以<strong>无限地前进且无限数目</strong>。求返回引爆所有气球所必须射出的 <strong>最小弓箭数</strong> 。</p>
+<pre tabindex="0"><code>输入：points = [[1,2],[2,3],[3,4],[4,5]]
+输出：2
+解释：气球可以用2支箭来爆破:
+- 在x = 2处发射箭，击破气球[1,2]和[2,3]。
+- 在x = 4处射出箭，击破气球[3,4]和[4,5]。
+</code></pre></li>
+<li>
+<p>解法：<strong>贪心算法</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>问题可以转化为求不重叠的区间数，因为重叠的气球区间均用一个弓箭即可引爆。</p>
+</blockquote>
+<blockquote>
+<p>发现原先的<code>compare</code>方式用减法会导致<strong>溢出</strong>，改为比较形式。 <br>
+测试用例：<code>[[-2147483646,-2147483645],[2147483646,2147483647]]</code></p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">findMinArrowShots</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">points</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">points</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//不用减法防止溢出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">o1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="o">(</span><span class="n">o1</span><span class="o">[</span><span class="n">1</span><span class="o">]&lt;</span><span class="n">o2</span><span class="o">[</span><span class="n">1</span><span class="o">])?-</span><span class="n">1</span><span class="o">:(</span><span class="n">o1</span><span class="o">[</span><span class="n">1</span><span class="o">]==</span><span class="n">o2</span><span class="o">[</span><span class="n">1</span><span class="o">]?</span><span class="n">0</span><span class="o">:</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">1</span><span class="o">,</span><span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="o">,</span><span class="n">end</span><span class="o">=</span><span class="n">points</span><span class="o">[</span><span class="n">0</span><span class="o">][</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="o">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">end</span><span class="o">&lt;</span><span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">0</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">end</span><span class="o">=</span><span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">i</span><span class="o">++;</span>	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>   	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>

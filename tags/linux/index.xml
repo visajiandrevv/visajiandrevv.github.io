@@ -10,7 +10,7 @@
     <pubDate>Wed, 15 Jun 2022 11:57:12 &#43;0800</pubDate>
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_cmd_linux/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[ssh 生成公私钥 ssh-keygen -t rsa]]></description>
 </item>
 <item>
     <title>虚拟机上搭建多节点的linux环境</title>
