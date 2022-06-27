@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_2\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  1118 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  1470 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_2\/","datePublished": "2022-06-19T17:34:37+08:00","dateModified": "2022-06-19T17:34:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_贪心</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-19">2022-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1118 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-19">2022-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1470 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -119,6 +119,7 @@
         <li><a href="#leetcode_455_easy">leetcode_455_easy</a></li>
         <li><a href="#leetcode_435_middle">leetcode_435_middle</a></li>
         <li><a href="#leetcode_452_middle">leetcode_452_middle</a></li>
+        <li><a href="#leetcode_406_middle">leetcode_406_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -286,6 +287,54 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>   	
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_406_middle">leetcode_406_middle</h3>
+<p><a href="https://leetcode.cn/problems/queue-reconstruction-by-height/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+数组(乱序) <code>people[i] = [hi, ki]</code> 表示第 <code>i </code>个人的身高为 <code>hi</code> ，前面正好 有<code> ki</code> 个身高大于或等于<code> hi</code> 的人。</p>
+<p>重新构造并返回队列<code>queue</code> 使其满足规定的顺序。</p>
+<pre tabindex="0"><code>输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+输出：[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+</code></pre></li>
+<li>
+<p>解法：<strong>贪心算法</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>如果按身高升序排列，身高最矮且kj最大的人应该先被排列，因为后面的人身高都比他高，或者kj比他小也会影响到他。</p>
+</blockquote>
+<blockquote>
+<p>实现时发现反过来按身高降序排列，kj升序排列更为简单，只需要一个链表队列即可。每次插入身高最高的人，相同身高时需要优先插入kj小的人，因此每步都是局部最优解，后续的插入都对它没有影响。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">reconstructQueue</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">people</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span><span class="o">[][]</span> <span class="n">sorted_people</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">people</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">2</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//按身高hi降序，数量ki升序排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">people</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">o1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">o1</span><span class="o">[</span><span class="n">0</span><span class="o">]==</span><span class="n">o2</span><span class="o">[</span><span class="n">0</span><span class="o">])</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="n">o1</span><span class="o">[</span><span class="n">1</span><span class="o">]-</span><span class="n">o2</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>				
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">o2</span><span class="o">[</span><span class="n">0</span><span class="o">]-</span><span class="n">o1</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">list</span><span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//每次插入都是局部最优
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">p</span><span class="o">:</span><span class="n">people</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">p</span><span class="o">[</span><span class="n">1</span><span class="o">],</span> <span class="n">p</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">list</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="n">sorted_people</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">sorted_people</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
