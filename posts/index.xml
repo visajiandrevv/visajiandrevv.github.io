@@ -4,7 +4,15 @@
         <link>https://visajiandrevv.github.io/posts/</link>
         <description>All Posts | Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Sun, 19 Jun 2022 17:34:37 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:53:26 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode题解_搜索</title>
+    <link>https://visajiandrevv.github.io/posts/blog_leetcode_3/</link>
+    <pubDate>Tue, 28 Jun 2022 20:53:26 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_leetcode_3/</guid>
+    <description><![CDATA[搜索 BFS leetcode_1091_middle &lt;leetcode_link&gt; 问题描述 n*n矩阵求解从左上角到右下角的最短路径长度，0为可走路径，行进方向为相邻的8个方向 [[0,1], [1,0]] 输入：grid = [[0,1],[1,0]] 输出：2 解法：B]]></description>
+</item>
+<item>
     <title>LeetCode题解_贪心</title>
     <link>https://visajiandrevv.github.io/posts/blog_leetcode_2/</link>
     <pubDate>Sun, 19 Jun 2022 17:34:37 &#43;0800</pubDate>
