@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  659 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  1107 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;659 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1107 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -118,6 +118,7 @@
       <ul>
         <li><a href="#leetcode_1091_middle">leetcode_1091_middle</a></li>
         <li><a href="#leetcode_279_middle">leetcode_279_middle</a></li>
+        <li><a href="#leetcode_127_hard">leetcode_127_hard</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -264,6 +265,92 @@
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">numSquares</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">BFS</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_127_hard">leetcode_127_hard</h3>
+<p><a href="https://leetcode.cn/problems/word-ladder/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+给定单词<code> beginWord </code>和 <code>endWord </code>和一个字典 wordList ，返回 从 <code>beginWord</code> 到 <code>endWord </code>的 最短转换序列 中的 单词数目 。如果不存在这样的转换序列，返回 0 。</p>
+<pre tabindex="0"><code>输入：beginWord = &#34;hit&#34;, endWord = &#34;cog&#34;, wordList = [&#34;hot&#34;,&#34;dot&#34;,&#34;dog&#34;,&#34;lot&#34;,&#34;log&#34;,&#34;cog&#34;]
+输出：5
+解释：一个最短转换序列是 &#34;hit&#34; -&gt; &#34;hot&#34; -&gt; &#34;dot&#34; -&gt; &#34;dog&#34; -&gt; &#34;cog&#34;, 返回它的长度 5。
+</code></pre></li>
+<li>
+<p>解法：<strong>BFS广度优先搜索</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>问题等价于从节点beginWord开始直到节点endWord，经过的最短路径长度，若当前节点单词与wordList中某一单词存在一个字母的差别则表示存在一条边。</p>
+</blockquote>
+<blockquote>
+<p><strong>超时优化</strong>：</p>
+<ul>
+<li>1、<code>compareWord</code>判断函数应当在<code>count&gt;1</code>时直接返回</li>
+<li>2、<code>wordList</code>的<code>for</code>循环应当使用<code>index</code>形式而不是<code>for each</code>，避免过多使用<code>mark[wordList.indexOf(s) </code>每次查询标记的下标</li>
+<li>3、官方题解存在将<code>wordList</code>放到哈希表里和双向BFS等优化，未实现。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">word</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">String</span> <span class="n">s</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="nf">word</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span><span class="kt">int</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">this</span><span class="o">.</span><span class="na">s</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">this</span><span class="o">.</span><span class="na">length</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">compareWord</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span><span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">()&amp;&amp;</span><span class="n">count</span><span class="o">&lt;=</span><span class="n">1</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)!=</span><span class="n">b</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">count</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">count</span><span class="o">&lt;=</span><span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">ladderLength</span><span class="o">(</span><span class="n">String</span> <span class="n">beginWord</span><span class="o">,</span> <span class="n">String</span> <span class="n">endWord</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">wordList</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(!</span><span class="n">wordList</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">endWord</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">word</span> <span class="n">w</span><span class="o">=</span><span class="k">new</span> <span class="n">word</span><span class="o">(</span><span class="n">beginWord</span><span class="o">,</span><span class="n">1</span><span class="o">);</span>    	
+</span></span><span class="line"><span class="cl">	<span class="n">Queue</span><span class="o">&lt;</span><span class="n">word</span><span class="o">&gt;</span> <span class="n">queue</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">word</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">w</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">marks</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">wordList</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">word</span> <span class="n">curw</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">endWord</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">curw</span><span class="o">.</span><span class="na">s</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">curw</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">wordList</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">compareWord</span><span class="o">(</span><span class="n">curw</span><span class="o">.</span><span class="na">s</span><span class="o">,</span> <span class="n">wordList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">word</span><span class="o">(</span><span class="n">wordList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">curw</span><span class="o">.</span><span class="na">length</span><span class="o">+</span><span class="n">1</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>    			
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
