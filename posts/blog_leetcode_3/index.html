@@ -19,7 +19,7 @@
 <meta name="application-name" content="Visaji&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Visaji&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_leetcode_3/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_leetcode_2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://visajiandrevv.github.io/posts/blog_leetcode_3/" /><link rel="prev" href="https://visajiandrevv.github.io/posts/blog_leetcode_2/" /><link rel="next" href="https://visajiandrevv.github.io/posts/blog_paper_1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  1107 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  1600 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1107 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1600 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -119,6 +119,11 @@
         <li><a href="#leetcode_1091_middle">leetcode_1091_middle</a></li>
         <li><a href="#leetcode_279_middle">leetcode_279_middle</a></li>
         <li><a href="#leetcode_127_hard">leetcode_127_hard</a></li>
+      </ul>
+    </li>
+    <li><a href="#dfs">DFS</a>
+      <ul>
+        <li><a href="#leetcode_695_middle">leetcode_695_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -354,6 +359,77 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h2 id="dfs">DFS</h2>
+<h3 id="leetcode_695_middle">leetcode_695_middle</h3>
+<p><a href="https://leetcode.cn/problems/max-area-of-island/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+岛屿的面积是岛上值为 1 的单元格的数目。上下左右的相邻面积可以相连。
+计算并返回 <code>m*n</code>矩阵<code>grid </code>中最大的岛屿面积。如果没有岛屿，则返回面积为 0 。</p>
+<pre tabindex="0"><code>[[0,0,1,0,0,0,0,1,0,0,0,0,0],
+[0,0,0,0,0,0,0,1,1,1,0,0,0],
+[0,1,1,0,1,0,0,0,0,0,0,0,0],
+[0,1,0,0,1,1,0,0,1,0,1,0,0],
+[0,1,0,0,1,1,0,0,1,1,1,0,0],
+[0,0,0,0,0,0,0,0,0,0,1,0,0],
+[0,0,0,0,0,0,0,1,1,1,0,0,0],
+[0,0,0,0,0,0,0,1,1,0,0,0,0]]
+输出：6
+</code></pre></li>
+<li>
+<p>解法：<strong>DFS深度优先搜索</strong></p>
+<blockquote>
+<p>DFS常用于求解不需要特定路径的图问题即可达性问题，实现时注意两点：</p>
+<ul>
+<li>栈：用栈来保存当前节点信息，当遍历新节点返回时能够继续遍历当前节点。可以使用递归栈。</li>
+<li>标记：和 BFS 一样同样需要对已经遍历过的节点进行标记。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>本题也可以用BFS进行求解，只需要记录所有的出队数目总和即可。使用DFS的递归方法可以大量节省时间。</p>
+</blockquote>
+<blockquote>
+<p>使用递归时，通过函数的调用来表示接下来想要遍历哪些土地，让下一层函数来访问这些土地，并设定一个条件停止递归地调用，本题为下一层函数的土地值<code>grid[i][j]</code>为<code>0</code>时<code>return 0</code>;</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4个方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="o">-</span><span class="n">1</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="n">1</span> <span class="o">}</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">DFS</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">grid</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">nextr</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">0</span><span class="o">],</span> <span class="n">nextc</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(</span><span class="n">nextr</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">nextr</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">nextc</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">nextc</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">area</span> <span class="o">+=</span> <span class="n">DFS</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">nextr</span><span class="o">,</span> <span class="n">nextc</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">area</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">maxAreaOfIsland</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">maxArea</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">grid</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">maxArea</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">maxArea</span><span class="o">,</span> <span class="n">DFS</span><span class="o">(</span><span class="n">grid</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">maxArea</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://leetcode.cn/" target="_blank" rel="noopener noreffer">https://leetcode.cn/</a></li>
@@ -380,7 +456,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/blog_leetcode_2/" class="prev" rel="prev" title="LeetCode题解_贪心"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LeetCode题解_贪心</a></div>
+    <div class="post-nav"><a href="/posts/blog_leetcode_2/" class="prev" rel="prev" title="LeetCode题解_贪心"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LeetCode题解_贪心</a>
+            <a href="/posts/blog_paper_1/" class="next" rel="next" title="论文笔记1——《Code-size-aware Scheduling of Synchronous Dataflow Graphs on Multicore Systems》">论文笔记1——《Code-size-aware Scheduling of Synchronous Dataflow Graphs on Multicore Systems》<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

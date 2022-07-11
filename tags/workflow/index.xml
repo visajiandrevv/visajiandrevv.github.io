@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>notes - Category - Visaji&#39;s Blog</title>
-        <link>https://visajiandrevv.github.io/categories/notes/</link>
-        <description>notes - Category - Visaji&#39;s Blog</description>
+        <title>workflow - Tag - Visaji&#39;s Blog</title>
+        <link>https://visajiandrevv.github.io/tags/workflow/</link>
+        <description>workflow - Tag - Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Thu, 07 Jul 2022 21:39:42 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/categories/notes/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Thu, 07 Jul 2022 21:39:42 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/tags/workflow/" rel="self" type="application/rss+xml" /><item>
     <title>论文笔记2——《Scalable Virtual Machine Migration using Reinforcement Learning》</title>
     <link>https://visajiandrevv.github.io/posts/blog_paper_2/</link>
     <pubDate>Thu, 07 Jul 2022 21:39:42 &#43;0800</pubDate>
@@ -19,14 +19,6 @@
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_paper_1/</guid>
     <description><![CDATA[Code-size-aware Scheduling of Synchronous Dataflow Graphs on Multicore Systems MINGZE MA and RIZOS SAKELLARIOU, The University of Manchester (TECS)ACM Transactions on Embedded Computing Systems 2021 CCF-B 1、introduction Synchronous Dataflow Graphs (SDFGs)同步数据流图作为一种方便的表示流媒体应用]]></description>
-</item>
-<item>
-    <title>学习笔记1——北大肖臻《区块链技术与应用》</title>
-    <link>https://visajiandrevv.github.io/posts/blog_blockchain_1/</link>
-    <pubDate>Sat, 11 Jun 2022 16:56:08 &#43;0800</pubDate>
-    <author>VisajiAndrevv</author>
-    <guid>https://visajiandrevv.github.io/posts/blog_blockchain_1/</guid>
-    <description><![CDATA[比特币 一、密码学基础 1、哈希函数 比特币是crypto-currency加密货币，实际上并不加密，而是公开，用在加密货币的哈希函数称为cryp]]></description>
 </item>
 </channel>
 </rss>
