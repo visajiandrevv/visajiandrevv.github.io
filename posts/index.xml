@@ -4,7 +4,31 @@
         <link>https://visajiandrevv.github.io/posts/</link>
         <description>All Posts | Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Thu, 07 Jul 2022 21:39:42 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 13 Jul 2022 10:17:19 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Blog_paper_5</title>
+    <link>https://visajiandrevv.github.io/posts/blog_paper_5/</link>
+    <pubDate>Wed, 13 Jul 2022 10:17:19 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_paper_5/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>论文笔记4——《Performance-Based Pricing in Multi-Core Geo-Distributed Cloud Computing》</title>
+    <link>https://visajiandrevv.github.io/posts/blog_paper_4/</link>
+    <pubDate>Wed, 13 Jul 2022 10:17:16 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_paper_4/</guid>
+    <description><![CDATA[Performance-Based Pricing in Multi-Core Geo-Distributed Cloud Computing Drazen Lucanin , Ilia Pietri, Simon Holmbacka, Ivona Brandic, Johan Lilius, and Rizos Sakellariou (TCC)IEEE TRANSACTIONS ON CLOUD COMPUTING 2020 CCF-C]]></description>
+</item>
+<item>
+    <title>论文笔记3——《A Pareto-based approach for CPU provisioning of scientific workflows on clouds》</title>
+    <link>https://visajiandrevv.github.io/posts/blog_paper_3/</link>
+    <pubDate>Wed, 13 Jul 2022 10:17:01 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_paper_3/</guid>
+    <description><![CDATA[A Pareto-based approach for CPU provisioning of scientific workflows on clouds Ilia Pietri ,Rizos Sakellariou (FGCS)Future Generation Computer Systems 2019 CCF-C 1、introduction this paper proposes an algorithm, the Pareto-efficient Stepwise Frequency Selection Algorithm (PSFS), to provision CPU frequencies for a predefined number of CPU resources that aims to find cost-efficient, Pareto-optimal solutions for different execution time and]]></description>
+</item>
+<item>
     <title>论文笔记2——《Scalable Virtual Machine Migration using Reinforcement Learning》</title>
     <link>https://visajiandrevv.github.io/posts/blog_paper_2/</link>
     <pubDate>Thu, 07 Jul 2022 21:39:42 &#43;0800</pubDate>
@@ -59,30 +83,6 @@
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_cmd_eclipse/</guid>
     <description><![CDATA[一、快捷键 查看所有快捷键位置: Window/Preferences/Keys 字体缩放 放大: ctrl + = 缩小: ctrl + - 格式对齐 ctrl + shift + f 整理包 ctrl + shift + o 运行 alt + shift + x + 其他 删除整行 ctrl + d 选中整行]]></description>
-</item>
-<item>
-    <title>常用git命令</title>
-    <link>https://visajiandrevv.github.io/posts/blog_cmd_git/</link>
-    <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
-    <author>VisajiAndrevv</author>
-    <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
-    <description><![CDATA[ssh克隆 git clone ssh://git@[host]:[port]/path/xxx.git bash 查找历史命令 : ctrl + r access_token登录 移除原来的远程链接: git remote remove origin 重新新增git远程链接: git remote add origin https://&lt;your token&gt;@github.com/&lt;your account&gt;/&lt;your repository&gt;.git]]></description>
-</item>
-<item>
-    <title>常用linux命令</title>
-    <link>https://visajiandrevv.github.io/posts/blog_cmd_linux/</link>
-    <pubDate>Wed, 15 Jun 2022 11:57:12 &#43;0800</pubDate>
-    <author>VisajiAndrevv</author>
-    <guid>https://visajiandrevv.github.io/posts/blog_cmd_linux/</guid>
-    <description><![CDATA[ssh 生成公私钥 ssh-keygen -t rsa]]></description>
-</item>
-<item>
-    <title>虚拟机上搭建多节点的linux环境</title>
-    <link>https://visajiandrevv.github.io/posts/blog_vm_1/</link>
-    <pubDate>Mon, 13 Jun 2022 16:58:13 &#43;0800</pubDate>
-    <author>VisajiAndrevv</author>
-    <guid>https://visajiandrevv.github.io/posts/blog_vm_1/</guid>
-    <description><![CDATA[一、下载 这里建议直接到官网进行下载，或者在网上找别人分享的资源也可以 1、VMware下载 官网：https://customerconnect]]></description>
 </item>
 </channel>
 </rss>

@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/"
-        },"genre": "posts","keywords": "java","wordcount":  422 ,
+        },"genre": "posts","keywords": "java","wordcount":  735 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/","datePublished": "2022-06-16T13:04:08+08:00","dateModified": "2022-06-16T13:04:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/basics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>basics</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;422 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;735 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -122,6 +122,7 @@
       <ul>
         <li><a href="#二维数组">二维数组</a></li>
         <li><a href="#列表">列表</a></li>
+        <li><a href="#参数传递">参数传递</a></li>
       </ul>
     </li>
   </ul>
@@ -208,7 +209,34 @@ List<T>中T需为泛型，int等基本数据类型不可行。</p>
 </blockquote>
 </li>
 </ul>
-</div><div class="post-footer" id="post-footer">
+<h3 id="参数传递">参数传递</h3>
+<p>java中函数传参是<strong>值传递</strong>, 不是引用传递.</p>
+<ul>
+<li>值传递 (pass by value): 是指在调用函数时将实际参数复制一份传递到函数中, 这样在函数中如果参数进行修改,将不会影响到实际参数。</li>
+<li>引用传递 (pass by reference): 是指在调用函数时将实际参数的地址直接传递到函数中, 这样在函数如果对参数进行修改, 将影响实际参数。</li>
+<li>一个方法不能修改一个基本数据类型的参数；</li>
+<li>一个方法可以改变一个对象参数的状态(属性)；例如：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testParam</span><span class="o">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;zs&#34;</span><span class="o">,</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pass</span><span class="o">(</span><span class="n">user</span><span class="o">);</span><span class="c1">//user.username改变为张三
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pass</span><span class="o">(</span><span class="n">User</span> <span class="n">u</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&#34;张三&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div><ul>
+<li>一个方法不能实现让对象参数引用一个新对象；例如：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testParam</span><span class="o">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">a</span><span class="o">=</span><span class="s">&#34;abc&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pass</span><span class="o">(</span><span class="n">a</span><span class="o">);</span><span class="c1">//a还是abc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pass</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="s">&#34;ABC&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -217,7 +245,7 @@ List<T>中T需为泛型，int等基本数据类型不可行。</p>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-title="java基础" data-hashtags="java"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-hashtag="java"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-title="java基础" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-title="java基础"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-title="java基础" data-hashtags="java"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-hashtag="java"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://visajiandrevv.github.io/posts/blog_basic_java/" data-title="java基础"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

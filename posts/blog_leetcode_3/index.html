@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  1600 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  2292 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1600 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2292 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -124,6 +124,8 @@
     <li><a href="#dfs">DFS</a>
       <ul>
         <li><a href="#leetcode_695_middle">leetcode_695_middle</a></li>
+        <li><a href="#leetcode_200_middle">leetcode_200_middle</a></li>
+        <li><a href="#leetcode_547_middle">leetcode_547_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -430,6 +432,125 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h3 id="leetcode_200_middle">leetcode_200_middle</h3>
+<p><a href="https://leetcode.cn/problems/number-of-islands/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+岛屿的面积是岛上值为 1 的单元格的数目。上下左右的相邻面积可以相连。
+计算并返回 <code>m*n</code>矩阵<code>grid </code>中的岛屿数量。如果没有岛屿，则返回为 0 。</p>
+<pre tabindex="0"><code>[
+[&#34;1&#34;,&#34;1&#34;,&#34;0&#34;,&#34;0&#34;,&#34;0&#34;],
+[&#34;1&#34;,&#34;1&#34;,&#34;0&#34;,&#34;0&#34;,&#34;0&#34;],
+[&#34;0&#34;,&#34;0&#34;,&#34;1&#34;,&#34;0&#34;,&#34;0&#34;],
+[&#34;0&#34;,&#34;0&#34;,&#34;0&#34;,&#34;1&#34;,&#34;1&#34;]
+]
+输出：3
+</code></pre></li>
+<li>
+<p>解法：<strong>DFS深度优先搜索</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>本题也可以用BFS进行求解。使用DFS的递归方法可以大量节省时间。</p>
+</blockquote>
+<blockquote>
+<p>递归与上一道类似，需要注意函数传参grid矩阵的知识。</p>
+</blockquote>
+<blockquote>
+<p>这里的代码采用了BFS的队列方法，为了避免超时，需要在找到下一个值为1的面积时直接置0，防止其他重复访问。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4个方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="o">-</span><span class="n">1</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="n">1</span> <span class="o">}</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">numIslands</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">grid</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="na">length</span><span class="o">,</span><span class="n">c</span><span class="o">=</span><span class="n">grid</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">,</span><span class="n">num</span><span class="o">=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">queue</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">r</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">c</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="sc">&#39;1&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">num</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">		    	<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">});</span>	
+</span></span><span class="line"><span class="cl">		    	<span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="sc">&#39;0&#39;</span><span class="o">;</span><span class="c1">//找到直接标记，节省消耗防止超时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		    	<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		    		<span class="kt">int</span><span class="o">[]</span> <span class="n">cur</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">		    		<span class="kt">int</span> <span class="n">curi</span><span class="o">=</span><span class="n">cur</span><span class="o">[</span><span class="n">0</span><span class="o">],</span><span class="n">curj</span><span class="o">=</span><span class="n">cur</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>			    		
+</span></span><span class="line"><span class="cl">		    		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		    			<span class="kt">int</span> <span class="n">nexti</span> <span class="o">=</span> <span class="n">curi</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">0</span><span class="o">],</span> <span class="n">nextj</span> <span class="o">=</span> <span class="n">curj</span> <span class="o">+</span> <span class="n">dir</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">		    			<span class="k">if</span> <span class="o">(</span><span class="n">nexti</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">nexti</span> <span class="o">&gt;=</span> <span class="n">r</span> <span class="o">||</span> <span class="n">nextj</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">nextj</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		    				<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		    			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		    			<span class="k">if</span><span class="o">(</span><span class="n">grid</span><span class="o">[</span><span class="n">nexti</span><span class="o">][</span><span class="n">nextj</span><span class="o">]==</span><span class="sc">&#39;1&#39;</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		    				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="n">nexti</span><span class="o">,</span><span class="n">nextj</span><span class="o">});</span>
+</span></span><span class="line"><span class="cl">		    				<span class="n">grid</span><span class="o">[</span><span class="n">nexti</span><span class="o">][</span><span class="n">nextj</span><span class="o">]=</span><span class="sc">&#39;0&#39;</span><span class="o">;</span><span class="c1">//找到直接标记，节省消耗防止超时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		    			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		    		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		    	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_547_middle">leetcode_547_middle</h3>
+<p><a href="https://leetcode.cn/problems/number-of-provinces/submissions/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+有<code>n</code>个城市间接或直接相连称为一个省份。给你一个<code>n x n</code>的矩阵<code>isConnected</code>，其中 <code>isConnected[i][j] = 1 </code>表示第<code>i</code>个城市和第<code>j</code>个城市直接相连。
+返回矩阵中 省份 的数量。</p>
+<pre tabindex="0"><code>[[1,1,0],[1,1,0],[0,0,1]]
+输出：2
+</code></pre></li>
+<li>
+<p>解法：<strong>DFS深度优先搜索</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>城市关系可以看成一个无向图，若ab相连则对称位置也应为1，因此遍历时需要标记两次边。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4个方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">DFS</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">isConnected</span><span class="o">,</span><span class="kt">int</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//该if可以省略	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="o">(</span><span class="n">isConnected</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">row</span><span class="o">]==</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">isConnected</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">row</span><span class="o">]=</span><span class="n">0</span><span class="o">;</span><span class="c1">//标记节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">isConnected</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">isConnected</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">isConnected</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="n">0</span><span class="o">;</span><span class="c1">//标记边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="n">isConnected</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">row</span><span class="o">]=</span><span class="n">0</span><span class="o">;</span><span class="c1">//标记对称边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="n">DFS</span><span class="o">(</span><span class="n">isConnected</span><span class="o">,</span><span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">findCircleNum</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">isConnected</span><span class="o">)</span> <span class="o">{</span>	
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">0</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">isConnected</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">isConnected</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">num</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">DFS</span><span class="o">(</span><span class="n">isConnected</span><span class="o">,</span><span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://leetcode.cn/" target="_blank" rel="noopener noreffer">https://leetcode.cn/</a></li>
@@ -444,7 +565,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-title="LeetCode题解_搜索" data-hashtags="leetcode"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-hashtag="leetcode"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-title="LeetCode题解_搜索" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-title="LeetCode题解_搜索"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-title="LeetCode题解_搜索" data-hashtags="leetcode"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-hashtag="leetcode"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://visajiandrevv.github.io/posts/blog_leetcode_3/" data-title="LeetCode题解_搜索"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
