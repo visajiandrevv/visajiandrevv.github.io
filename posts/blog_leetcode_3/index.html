@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  2292 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  2670 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2292 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2670 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -126,6 +126,7 @@
         <li><a href="#leetcode_695_middle">leetcode_695_middle</a></li>
         <li><a href="#leetcode_200_middle">leetcode_200_middle</a></li>
         <li><a href="#leetcode_547_middle">leetcode_547_middle</a></li>
+        <li><a href="#leetcode_130_middle">leetcode_130_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -521,8 +522,7 @@
 </li>
 <li>
 <p>代码</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4个方向
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">DFS</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">isConnected</span><span class="o">,</span><span class="kt">int</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>	
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">DFS</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">isConnected</span><span class="o">,</span><span class="kt">int</span> <span class="n">row</span><span class="o">)</span> <span class="o">{</span>	
 </span></span><span class="line"><span class="cl">	<span class="c1">//该if可以省略	
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="o">(</span><span class="n">isConnected</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">row</span><span class="o">]==</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
@@ -548,6 +548,84 @@
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_130_middle">leetcode_130_middle</h3>
+<p><a href="https://leetcode.cn/problems/surrounded-regions/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+<code>m x n</code> 的矩阵<code>board</code>，找到所有被<code> 'X'</code> 围绕的区域，并将这些区域里所有的 <code>'O' </code>用<code> 'X'</code> 填充。</p>
+<pre tabindex="0"><code>[[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;O&#34;,&#34;O&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;X&#34;,&#34;O&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;]]
+输出：
+[[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],
+[&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;]]
+</code></pre></li>
+<li>
+<p>解法：<strong>DFS深度优先搜索</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>只有上下左右都被<code>X</code>包围的<code>O</code>才需要填充，因此只需对与最外圈的<code>O</code>连通的路径标记即可。没被标记的<code>O</code>就是需要填充的。
+注意别忘了重复标记marks；</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//4个方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{</span> <span class="o">{</span> <span class="o">-</span><span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">1</span><span class="o">,</span> <span class="n">0</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="o">-</span><span class="n">1</span> <span class="o">},</span> <span class="o">{</span> <span class="n">0</span><span class="o">,</span> <span class="n">1</span> <span class="o">}</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">DFS</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">,</span> <span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">marks</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">board</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dir</span> <span class="o">:</span> <span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">next_m</span> <span class="o">=</span> <span class="n">dir</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">,</span> <span class="n">next_n</span> <span class="o">=</span> <span class="n">dir</span><span class="o">[</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(</span><span class="n">next_m</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">next_m</span> <span class="o">&gt;=</span> <span class="n">row</span> <span class="o">||</span> <span class="n">next_n</span> <span class="o">&lt;</span> <span class="n">0</span> <span class="o">||</span> <span class="n">next_n</span> <span class="o">&gt;=</span> <span class="n">col</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">next_m</span><span class="o">][</span><span class="n">next_n</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39;O&#39;</span><span class="o">&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">next_m</span><span class="o">][</span><span class="n">next_n</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">marks</span><span class="o">[</span><span class="n">next_m</span><span class="o">][</span><span class="n">next_n</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">DFS</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">next_m</span><span class="o">,</span> <span class="n">next_n</span><span class="o">,</span> <span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">board</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">boolean</span><span class="o">[][]</span> <span class="n">marks</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">0</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="n">row</span> <span class="o">-</span> <span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">col</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39;O&#39;</span><span class="o">&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">					<span class="n">DFS</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">				<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">0</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39;O&#39;</span><span class="o">&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">0</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">DFS</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39;O&#39;</span><span class="o">&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span> <span class="o">-</span> <span class="n">1</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">col</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">DFS</span><span class="o">(</span><span class="n">board</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">1</span><span class="o">,</span> <span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 填充
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">row</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">col</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="sc">&#39;O&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="sc">&#39;X&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
