@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>java基础 - Visaji&#39;s Blog</title><meta name="Description" content="Welcome to my Blog"><meta property="og:title" content="java基础" />
-<meta property="og:description" content="整型数据范围 byte：-128 ~ 127 (1个字节，$-2^{7}至(2^{7}-1)$) short: -32768 ~ 32767 (2个字节，$-2^{15}至(2^{15}-1" />
+<meta property="og:description" content="菜鸟教程 整型数据范围 byte：-128 ~ 127 (1个字节，$-2^{7}至(2^{7}-1)$) short: -32768 ~ 32767 (2个字节，$-2^{15}至(2^{1" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://visajiandrevv.github.io/posts/blog_basic_java/" /><meta property="og:image" content="https://visajiandrevv.github.io/img/logo.jpeg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-16T13:04:08+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://visajiandrevv.github.io/img/logo.jpeg"/>
 
 <meta name="twitter:title" content="java基础"/>
-<meta name="twitter:description" content="整型数据范围 byte：-128 ~ 127 (1个字节，$-2^{7}至(2^{7}-1)$) short: -32768 ~ 32767 (2个字节，$-2^{15}至(2^{15}-1"/>
+<meta name="twitter:description" content="菜鸟教程 整型数据范围 byte：-128 ~ 127 (1个字节，$-2^{7}至(2^{7}-1)$) short: -32768 ~ 32767 (2个字节，$-2^{15}至(2^{1"/>
 <meta name="application-name" content="Visaji&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Visaji&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/"
-        },"genre": "posts","keywords": "java","wordcount":  735 ,
+        },"genre": "posts","keywords": "java","wordcount":  801 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/","datePublished": "2022-06-16T13:04:08+08:00","dateModified": "2022-06-16T13:04:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/basics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>basics</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;735 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;801 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -116,7 +116,9 @@
   <ul>
     <li><a href="#整型数据范围">整型数据范围</a></li>
     <li><a href="#数学公式">数学公式</a></li>
+    <li><a href="#stringbuffer">StringBuffer</a></li>
     <li><a href="#string和char互转">String和char[]互转</a></li>
+    <li><a href="#char转int">char转int</a></li>
     <li><a href="#hashset">hashSet</a></li>
     <li><a href="#自定义sort排序函数">自定义sort排序函数</a>
       <ul>
@@ -127,7 +129,8 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="整型数据范围">整型数据范围</h2>
+            </div><div class="content" id="content"><p><a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
+<h2 id="整型数据范围">整型数据范围</h2>
 <blockquote>
 <p>byte：-128 ~ 127   (1个字节，$-2^{7}至(2^{7}-1)$)<br>
 short: -32768 ~ 32767  (2个字节，$-2^{15}至(2^{15}-1)$)<br>
@@ -138,6 +141,9 @@ long: -9223372036854775808 ~ 9223372036854775807    (8个字节，$-2^{63}至(2^
 <blockquote>
 <p>调用Math函数</p>
 </blockquote>
+<h2 id="stringbuffer">StringBuffer</h2>
+<p>需要动态改变string时通常使用StringBuffer 和 StringBuilder类
+<a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
 <h2 id="string和char互转">String和char[]互转</h2>
 <ul>
 <li>char[] to String
@@ -152,6 +158,10 @@ String s = new String(char[])</p>
 </blockquote>
 </li>
 </ul>
+<h2 id="char转int">char转int</h2>
+<blockquote>
+<p>int n = char -&lsquo;0&rsquo;</p>
+</blockquote>
 <h2 id="hashset">hashSet</h2>
 <blockquote>
 <p>只能为引用类型</p>

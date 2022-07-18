@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  2670 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  3295 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2670 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3295 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -127,6 +127,7 @@
         <li><a href="#leetcode_200_middle">leetcode_200_middle</a></li>
         <li><a href="#leetcode_547_middle">leetcode_547_middle</a></li>
         <li><a href="#leetcode_130_middle">leetcode_130_middle</a></li>
+        <li><a href="#leetcode_17_middle">leetcode_17_middle</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -626,6 +627,66 @@
 </span></span><span class="line"><span class="cl">			<span class="o">}</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_17_middle">leetcode_17_middle</h3>
+<p><a href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合,按九键字母对应。答案可以按 任意顺序 返回。</p>
+<pre tabindex="0"><code>输入：digits = &#34;23&#34;
+输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;]
+</code></pre></li>
+<li>
+<p>解法：<strong>BackTrack回溯</strong></p>
+<blockquote>
+<p>DFS常用解决可达性问题，而BackTrack主要用于求解<strong>排列组合</strong>问题
+BackTrack并不是立即返回，而要回溯上一层继续求解，因此在程序实现时，需要注意对元素的标记问题：</p>
+<ul>
+<li>1、在一次递归调用时需要标记访问元素，与DFS类似；</li>
+<li>2、递归返回上一层（回溯）时，需要将元素标记为未访问，使得下一次递归调用能够重复访问。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>该题为排列组合问题，因此需要将遍历的所有可能性加入解集中。
+由于涉及到修改字符串，使用<code>StringBuffer</code>，不仅作为解，也起到标记的作用；
+每次<code>back_track</code>后需要调用<code>s.deleteCharAt(len)</code>进行回溯取消标记。
+实际实现过程中发现这种回溯类似于二叉树的前序遍历，因此也可以用队列求解，每个数字的所有字母对应一层节点，逐层遍历将每层字母加上下一层的字母作为新的队列（下一层），这样遍历到最后一层的队列就是所得解集。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">char</span><span class="o">[][]</span> <span class="n">num_letter_map</span><span class="o">=</span><span class="k">new</span> <span class="kt">char</span><span class="o">[][]</span> <span class="o">{{},{},{</span><span class="sc">&#39;a&#39;</span><span class="o">,</span><span class="sc">&#39;b&#39;</span><span class="o">,</span><span class="sc">&#39;c&#39;</span><span class="o">},{</span><span class="sc">&#39;d&#39;</span><span class="o">,</span><span class="sc">&#39;e&#39;</span><span class="o">,</span><span class="sc">&#39;f&#39;</span><span class="o">},</span>
+</span></span><span class="line"><span class="cl">	<span class="o">{</span><span class="sc">&#39;g&#39;</span><span class="o">,</span><span class="sc">&#39;h&#39;</span><span class="o">,</span><span class="sc">&#39;i&#39;</span><span class="o">},{</span><span class="sc">&#39;j&#39;</span><span class="o">,</span><span class="sc">&#39;k&#39;</span><span class="o">,</span><span class="sc">&#39;l&#39;</span><span class="o">},{</span><span class="sc">&#39;m&#39;</span><span class="o">,</span><span class="sc">&#39;n&#39;</span><span class="o">,</span><span class="sc">&#39;o&#39;</span><span class="o">},{</span><span class="sc">&#39;p&#39;</span><span class="o">,</span><span class="sc">&#39;q&#39;</span><span class="o">,</span><span class="sc">&#39;r&#39;</span><span class="o">,</span><span class="sc">&#39;s&#39;</span><span class="o">},{</span><span class="sc">&#39;t&#39;</span><span class="o">,</span><span class="sc">&#39;u&#39;</span><span class="o">,</span><span class="sc">&#39;v&#39;</span><span class="o">},</span>
+</span></span><span class="line"><span class="cl">	<span class="o">{</span><span class="sc">&#39;w&#39;</span><span class="o">,</span><span class="sc">&#39;x&#39;</span><span class="o">,</span><span class="sc">&#39;y&#39;</span><span class="o">,</span><span class="sc">&#39;z&#39;</span><span class="o">}};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">back_track</span><span class="o">(</span><span class="n">StringBuffer</span> <span class="n">s</span><span class="o">,</span><span class="n">String</span> <span class="n">digits</span><span class="o">,</span><span class="kt">int</span> <span class="n">len</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">combines</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">len</span><span class="o">==</span><span class="n">digits</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">combines</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">len</span><span class="o">)-</span><span class="sc">&#39;0&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">num_letter_map</span><span class="o">[</span><span class="n">num</span><span class="o">].</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">s</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num_letter_map</span><span class="o">[</span><span class="n">num</span><span class="o">][</span><span class="n">i</span><span class="o">]));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="n">digits</span><span class="o">,</span> <span class="n">len</span><span class="o">+</span><span class="n">1</span><span class="o">,</span> <span class="n">combines</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">s</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">len</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">letterCombinations</span><span class="o">(</span><span class="n">String</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">combines</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span> 	  
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">digits</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">)||</span><span class="n">digits</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">combines</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">back_track</span><span class="o">(</span><span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(),</span><span class="n">digits</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">combines</span><span class="o">);</span> 	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">combines</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
