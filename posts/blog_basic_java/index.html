@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/"
-        },"genre": "posts","keywords": "java","wordcount":  801 ,
+        },"genre": "posts","keywords": "java","wordcount":  817 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_basic_java\/","datePublished": "2022-06-16T13:04:08+08:00","dateModified": "2022-06-16T13:04:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/basics/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>basics</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;801 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-16">2022-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;817 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -116,17 +116,19 @@
   <ul>
     <li><a href="#整型数据范围">整型数据范围</a></li>
     <li><a href="#数学公式">数学公式</a></li>
-    <li><a href="#stringbuffer">StringBuffer</a></li>
-    <li><a href="#string和char互转">String和char[]互转</a></li>
-    <li><a href="#char转int">char转int</a></li>
-    <li><a href="#hashset">hashSet</a></li>
-    <li><a href="#自定义sort排序函数">自定义sort排序函数</a>
+    <li><a href="#string">String</a>
       <ul>
-        <li><a href="#二维数组">二维数组</a></li>
-        <li><a href="#列表">列表</a></li>
-        <li><a href="#参数传递">参数传递</a></li>
+        <li><a href="#stringbuffer">StringBuffer</a></li>
+        <li><a href="#string和char互转">String和char[]互转</a></li>
       </ul>
     </li>
+    <li><a href="#char转int">char转int</a></li>
+    <li><a href="#string转int">String转int</a></li>
+    <li><a href="#hashset">hashSet</a></li>
+    <li><a href="#自定义sort排序函数">自定义sort排序函数</a></li>
+    <li><a href="#二维数组">二维数组</a></li>
+    <li><a href="#列表">列表</a></li>
+    <li><a href="#参数传递">参数传递</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
@@ -141,10 +143,11 @@ long: -9223372036854775808 ~ 9223372036854775807    (8个字节，$-2^{63}至(2^
 <blockquote>
 <p>调用Math函数</p>
 </blockquote>
-<h2 id="stringbuffer">StringBuffer</h2>
-<p>需要动态改变string时通常使用StringBuffer 和 StringBuilder类
-<a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
-<h2 id="string和char互转">String和char[]互转</h2>
+<h2 id="string">String</h2>
+<h3 id="stringbuffer">StringBuffer</h3>
+<p><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
+<p>需要动态改变string时通常使用StringBuffer 和 StringBuilder类</p>
+<h3 id="string和char互转">String和char[]互转</h3>
 <ul>
 <li>char[] to String
 <blockquote>
@@ -161,6 +164,10 @@ String s = new String(char[])</p>
 <h2 id="char转int">char转int</h2>
 <blockquote>
 <p>int n = char -&lsquo;0&rsquo;</p>
+</blockquote>
+<h2 id="string转int">String转int</h2>
+<blockquote>
+<p>int n = Integer.valueOf(String s)</p>
 </blockquote>
 <h2 id="hashset">hashSet</h2>
 <blockquote>
@@ -186,7 +193,7 @@ String s = new String(char[])</p>
 </span></span><span class="line"><span class="cl"><span class="o">});</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="二维数组">二维数组</h3>
+<h2 id="二维数组">二维数组</h2>
 <p>二维数组本质上也是个一维数组，但该一维数组的每个元素又都是一个一维数组。</p>
 <ul>
 <li>初始化
@@ -198,7 +205,7 @@ String s = new String(char[])</p>
 </span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="o">[</span><span class="n">1</span><span class="o">]=</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&#34;java&#34;</span><span class="o">,</span><span class="s">&#34;python&#34;</span><span class="o">,</span><span class="s">&#34;c++&#34;</span><span class="o">};</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="列表">列表</h3>
+<h2 id="列表">列表</h2>
 <p><a href="https://www.runoob.com/java/java-linkedlist.html" target="_blank" rel="noopener noreffer">菜鸟教程</a></p>
 <ul>
 <li>初始化
@@ -219,7 +226,7 @@ List<T>中T需为泛型，int等基本数据类型不可行。</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="参数传递">参数传递</h3>
+<h2 id="参数传递">参数传递</h2>
 <p>java中函数传参是<strong>值传递</strong>, 不是引用传递.</p>
 <ul>
 <li>值传递 (pass by value): 是指在调用函数时将实际参数复制一份传递到函数中, 这样在函数中如果参数进行修改,将不会影响到实际参数。</li>

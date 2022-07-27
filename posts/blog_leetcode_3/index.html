@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  3295 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  4421 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3295 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4421 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -127,7 +127,14 @@
         <li><a href="#leetcode_200_middle">leetcode_200_middle</a></li>
         <li><a href="#leetcode_547_middle">leetcode_547_middle</a></li>
         <li><a href="#leetcode_130_middle">leetcode_130_middle</a></li>
+      </ul>
+    </li>
+    <li><a href="#backtrack">BackTrack</a>
+      <ul>
         <li><a href="#leetcode_17_middle">leetcode_17_middle</a></li>
+        <li><a href="#leetcode_93_middle">leetcode_93_middle</a></li>
+        <li><a href="#leetcode_79_middle">leetcode_79_middle</a></li>
+        <li><a href="#leetcode_257_easy">leetcode_257_easy</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -574,8 +581,10 @@
 <li>
 <p>原理</p>
 <blockquote>
-<p>只有上下左右都被<code>X</code>包围的<code>O</code>才需要填充，因此只需对与最外圈的<code>O</code>连通的路径标记即可。没被标记的<code>O</code>就是需要填充的。
-注意别忘了重复标记marks；</p>
+<p>只有上下左右都被<code>X</code>包围的<code>O</code>才需要填充，因此只需对与最外圈的<code>O</code>连通的路径标记即可。没被标记的<code>O</code>就是需要填充的。</p>
+</blockquote>
+<blockquote>
+<p>注意别忘了重复标记marks；</p>
 </blockquote>
 </li>
 <li>
@@ -630,6 +639,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h2 id="backtrack">BackTrack</h2>
 <h3 id="leetcode_17_middle">leetcode_17_middle</h3>
 <p><a href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
 <ul>
@@ -653,10 +663,16 @@ BackTrack并不是立即返回，而要回溯上一层继续求解，因此在�
 <li>
 <p>原理</p>
 <blockquote>
-<p>该题为排列组合问题，因此需要将遍历的所有可能性加入解集中。
-由于涉及到修改字符串，使用<code>StringBuffer</code>，不仅作为解，也起到标记的作用；
-每次<code>back_track</code>后需要调用<code>s.deleteCharAt(len)</code>进行回溯取消标记。
-实际实现过程中发现这种回溯类似于二叉树的前序遍历，因此也可以用队列求解，每个数字的所有字母对应一层节点，逐层遍历将每层字母加上下一层的字母作为新的队列（下一层），这样遍历到最后一层的队列就是所得解集。</p>
+<p>该题为排列组合问题，因此需要将遍历的所有可能性加入解集中。</p>
+</blockquote>
+<blockquote>
+<p>由于涉及到修改字符串，使用<code>StringBuffer</code>，不仅作为解，也起到标记的作用；</p>
+</blockquote>
+<blockquote>
+<p>每次<code>back_track</code>后需要调用<code>s.deleteCharAt(len)</code>进行回溯取消标记。</p>
+</blockquote>
+<blockquote>
+<p>实际实现过程中发现这种回溯类似于二叉树的前序遍历，因此也可以用队列求解，每个数字的所有字母对应一层节点，逐层遍历将每层字母加上下一层的字母作为新的队列（下一层），这样遍历到最后一层的队列就是所得解集。</p>
 </blockquote>
 </li>
 <li>
@@ -687,6 +703,215 @@ BackTrack并不是立即返回，而要回溯上一层继续求解，因此在�
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
 </span></span><span class="line"><span class="cl">	<span class="n">back_track</span><span class="o">(</span><span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(),</span><span class="n">digits</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">combines</span><span class="o">);</span> 	
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">combines</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_93_middle">leetcode_93_middle</h3>
+<p><a href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &lsquo;.&rsquo; 分隔。</p>
+<p>给定一个只包含数字的字符串 s ，通过在 s 中插入 &lsquo;.&rsquo; 返回所有可能的有效 IP 地址，。你 不能 重新排序或删除 s 中的任何数字。你可以按 任何 顺序返回答案。</p>
+<pre tabindex="0"><code>输入：s = &#34;101023&#34;
+输出：[&#34;1.0.10.23&#34;,&#34;1.0.102.3&#34;,&#34;10.1.0.23&#34;,&#34;10.10.2.3&#34;,&#34;101.0.2.3&#34;]
+</code></pre></li>
+<li>
+<p>解法：<strong>BackTrack回溯</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>在调用back_track的时候需要确认好判断条件，即段数为<code>4</code>或者小数点为<code>3</code>。同时需要注意<code>0</code>开头的特殊字段只有单独一段才作数。</p>
+</blockquote>
+<blockquote>
+<p>每次遍历的情况只需要考虑三位以内即可</p>
+</blockquote>
+<blockquote>
+<p>自己实现的代码有些粗糙，参考其他做法进行更改，包括将拼接放入循环中，主函数就不需要再一层循环。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">back_track</span><span class="o">(</span><span class="n">StringBuffer</span> <span class="n">sb</span><span class="o">,</span> <span class="n">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">lastp</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">dotnum</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ips</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">String</span> <span class="n">subString</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">lastp</span><span class="o">,</span> <span class="n">p</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 大于三位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="o">(</span><span class="n">subString</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">3</span> <span class="o">||</span> <span class="o">(</span><span class="n">subString</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">0</span><span class="o">)</span> <span class="o">==</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">subString</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">1</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 大于255
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">subString</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="n">255</span> <span class="o">||</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="c1">//回溯位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">subString</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;.&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//满足条件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="o">(</span><span class="n">dotnum</span> <span class="o">==</span> <span class="n">3</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span><span class="c1">//删除末尾小数点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">ips</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">(</span><span class="n">dotnum</span> <span class="o">==</span> <span class="n">2</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="n">sb</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">(),</span> <span class="n">dotnum</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">ips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">p</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">back_track</span><span class="o">(</span><span class="n">sb</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">p</span><span class="o">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="o">,</span> <span class="n">dotnum</span> <span class="o">+</span> <span class="n">1</span><span class="o">,</span> <span class="n">ips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">end</span><span class="o">,</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">restoreIpAddresses</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">ips</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">4</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">ips</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(),</span> <span class="n">s</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">ips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ips</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_79_middle">leetcode_79_middle</h3>
+<p><a href="https://leetcode.cn/problems/word-search/description/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+给定一个<code>m x n</code>二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果<code>word</code>存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<pre tabindex="0"><code>输入：board =
+ [[&#34;A&#34;,&#34;B&#34;,&#34;C&#34;,&#34;E&#34;],
+ [&#34;S&#34;,&#34;F&#34;,&#34;C&#34;,&#34;S&#34;],
+ [&#34;A&#34;,&#34;D&#34;,&#34;E&#34;,&#34;E&#34;]],
+  word = &#34;ABCCED&#34;
+
+输出：true
+</code></pre></li>
+<li>
+<p>解法：<strong>BackTrack回溯</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>自己的方法在主函数等于也进行了一次回溯，可能需要修改函数使得判断条件和回溯标记都在回溯函数里面。考虑在back_track内再判断标记和单词匹配</p>
+</blockquote>
+<blockquote>
+<p>注意回溯函数和主函数只要有一次找到单词路径就直接返回true</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[][]</span> <span class="n">directions</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[][]</span> <span class="o">{{</span><span class="n">0</span><span class="o">,</span><span class="n">1</span><span class="o">},{</span><span class="n">0</span><span class="o">,-</span><span class="n">1</span><span class="o">},{</span><span class="n">1</span><span class="o">,</span><span class="n">0</span><span class="o">},{-</span><span class="n">1</span><span class="o">,</span><span class="n">0</span><span class="o">}};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">back_track</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">,</span><span class="n">String</span> <span class="n">word</span><span class="o">,</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span><span class="kt">int</span> <span class="n">j</span><span class="o">,</span><span class="kt">boolean</span><span class="o">[][]</span> <span class="n">marks</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">board</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">boolean</span> <span class="n">res</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">index</span><span class="o">==</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dir</span><span class="o">:</span><span class="n">directions</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">next_i</span><span class="o">=</span><span class="n">dir</span><span class="o">[</span><span class="n">0</span><span class="o">]+</span><span class="n">i</span><span class="o">,</span><span class="n">next_j</span><span class="o">=</span><span class="n">dir</span><span class="o">[</span><span class="n">1</span><span class="o">]+</span><span class="n">j</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">next_i</span><span class="o">&gt;=</span><span class="n">m</span><span class="o">||</span><span class="n">next_i</span><span class="o">&lt;</span><span class="n">0</span><span class="o">||</span><span class="n">next_j</span><span class="o">&gt;=</span><span class="n">n</span><span class="o">||</span><span class="n">next_j</span><span class="o">&lt;</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">index</span><span class="o">++;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">next_i</span><span class="o">][</span><span class="n">next_j</span><span class="o">]==</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">index</span><span class="o">)&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">next_i</span><span class="o">][</span><span class="n">next_j</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">marks</span><span class="o">[</span><span class="n">next_i</span><span class="o">][</span><span class="n">next_j</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		    <span class="n">res</span><span class="o">=</span><span class="n">back_track</span><span class="o">(</span><span class="n">board</span><span class="o">,</span><span class="n">word</span><span class="o">,</span><span class="n">index</span><span class="o">,</span><span class="n">next_i</span><span class="o">,</span><span class="n">next_j</span><span class="o">,</span><span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		    <span class="n">marks</span><span class="o">[</span><span class="n">next_i</span><span class="o">][</span><span class="n">next_j</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">index</span><span class="o">--;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//注意一次回溯成功则直接返回true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	    <span class="k">if</span><span class="o">(</span><span class="n">res</span><span class="o">==</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	    	<span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">exist</span><span class="o">(</span><span class="kt">char</span><span class="o">[][]</span> <span class="n">board</span><span class="o">,</span> <span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">boolean</span> <span class="n">flag</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">board</span><span class="o">.</span><span class="na">length</span><span class="o">,</span><span class="n">n</span><span class="o">=</span><span class="n">board</span><span class="o">[</span><span class="n">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">boolean</span><span class="o">[][]</span> <span class="n">marks</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">n</span><span class="o">];</span><span class="c1">//回溯标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>   			
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">board</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">0</span><span class="o">)&amp;&amp;</span><span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="kc">false</span><span class="o">)</span> <span class="o">{</span>    				
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">flag</span><span class="o">=</span><span class="n">back_track</span><span class="o">(</span><span class="n">board</span><span class="o">,</span><span class="n">word</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">,</span><span class="n">marks</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">    		<span class="c1">//注意一次回溯成功则直接返回true	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">flag</span><span class="o">==</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="n">flag</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">flag</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_257_easy">leetcode_257_easy</h3>
+<p><a href="https://leetcode.cn/problems/binary-tree-paths/description/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述<br>
+给你一个二叉树的根节点 root ，按 任意顺序 ，返回所有从根节点到叶子节点的路径。</p>
+<pre tabindex="0"><code>输入：root = [1,2,3,null,5]
+输出：[&#34;1-&gt;2-&gt;5&#34;,&#34;1-&gt;3&#34;]
+</code></pre></li>
+<li>
+<p>解法：<strong>BackTrack回溯</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>基础的回溯问题/遍历树路径问题</p>
+</blockquote>
+<blockquote>
+<p>本题树已经构建好，需要复习一下树的相关知识。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">back_track</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="o">,</span> <span class="n">StringBuffer</span> <span class="n">sb</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">paths</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;-&gt;&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//找到叶子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">==</span><span class="kc">null</span><span class="o">&amp;&amp;</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">paths</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>		
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">end</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">sb</span><span class="o">,</span> <span class="n">paths</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">end</span><span class="o">,</span> <span class="n">sb</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">sb</span><span class="o">,</span> <span class="n">paths</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">binaryTreePaths</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">paths</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">paths</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">back_track</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(),</span><span class="n">paths</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">paths</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
 </ul>
