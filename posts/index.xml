@@ -4,15 +4,7 @@
         <link>https://visajiandrevv.github.io/posts/</link>
         <description>All Posts | Visaji&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>visajiandrevv@163.com (VisajiAndrevv)</managingEditor>
-            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 13 Jul 2022 10:17:19 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Blog_paper_5</title>
-    <link>https://visajiandrevv.github.io/posts/blog_paper_5/</link>
-    <pubDate>Wed, 13 Jul 2022 10:17:19 &#43;0800</pubDate>
-    <author>VisajiAndrevv</author>
-    <guid>https://visajiandrevv.github.io/posts/blog_paper_5/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+            <webMaster>visajiandrevv@163.com (VisajiAndrevv)</webMaster><lastBuildDate>Wed, 13 Jul 2022 10:17:16 &#43;0800</lastBuildDate><atom:link href="https://visajiandrevv.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>论文笔记4——《Performance-Based Pricing in Multi-Core Geo-Distributed Cloud Computing》</title>
     <link>https://visajiandrevv.github.io/posts/blog_paper_4/</link>
     <pubDate>Wed, 13 Jul 2022 10:17:16 &#43;0800</pubDate>
@@ -83,6 +75,14 @@
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_cmd_eclipse/</guid>
     <description><![CDATA[一、快捷键 查看所有快捷键位置: Window/Preferences/Keys 字体缩放 放大: ctrl + = 缩小: ctrl + - 格式对齐 ctrl + shift + f 整理包 ctrl + shift + o 运行 alt + shift + x + 其他 删除整行 ctrl + d 选中整行]]></description>
+</item>
+<item>
+    <title>常用git命令</title>
+    <link>https://visajiandrevv.github.io/posts/blog_cmd_git/</link>
+    <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
+    <author>VisajiAndrevv</author>
+    <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
+    <description><![CDATA[ssh克隆 git clone ssh://git@[host]:[port]/path/xxx.git bash 查找历史命令 : ctrl + r access_token登录 移除原来的远程链接: git remote remove origin 重新新增git远程链接: git remote add origin https://&lt;your token&gt;@github.com/&lt;your account&gt;/&lt;your repository&gt;.git]]></description>
 </item>
 </channel>
 </rss>

@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/"
-        },"genre": "posts","keywords": "leetcode","wordcount":  5453 ,
+        },"genre": "posts","keywords": "leetcode","wordcount":  5942 ,
         "url": "https:\/\/visajiandrevv.github.io\/posts\/blog_leetcode_3\/","datePublished": "2022-06-28T20:53:26+08:00","dateModified": "2022-06-28T20:53:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -105,8 +105,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode题解_搜索</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/visajiandrevv" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>VisajiAndrevv</a></span>&nbsp;<span class="post-category">included in <a href="/categories/algorithms/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>algorithms</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5453 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-28">2022-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5942 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -138,6 +138,7 @@
         <li><a href="#leetcode_46_middle需要重做">leetcode_46_middle(需要重做)</a></li>
         <li><a href="#leetcode_77_middle">leetcode_77_middle</a></li>
         <li><a href="#leetcode_90_middle">leetcode_90_middle</a></li>
+        <li><a href="#leetcode_51_hard">leetcode_51_hard</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -935,9 +936,6 @@ BackTrack并不是立即返回，而要回溯上一层继续求解，因此在�
 <blockquote>
 <p>添加列表时需要new一个arraylist，这是因为java的值传递导致的，否则结果会都为空指向同一个地址（回溯完成后的空列表）</p>
 </blockquote>
-<blockquote>
-<p>回溯的返回条件和回溯标记掌握不熟，需要找时间重做（2022/07/27）</p>
-</blockquote>
 </li>
 <li>
 <p>代码</p>
@@ -1089,6 +1087,114 @@ BackTrack并不是立即返回，而要回溯上一层继续求解，因此在�
 </span></span><span class="line"><span class="cl">	<span class="kt">boolean</span><span class="o">[]</span> <span class="n">marks</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
 </span></span><span class="line"><span class="cl">	<span class="n">back_track</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span><span class="n">curset</span><span class="o">,</span><span class="n">subsets</span><span class="o">,</span><span class="n">marks</span><span class="o">,</span><span class="n">0</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">subsets</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="leetcode_51_hard">leetcode_51_hard</h3>
+<p><a href="https://leetcode.cn/problems/n-queens/" target="_blank" rel="noopener noreffer"><strong>&lt;leetcode_link&gt;</strong></a></p>
+<ul>
+<li>
+<p>问题描述</p>
+<p>n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击,皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。</p>
+<p>给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。</p>
+<p>每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 &lsquo;Q&rsquo; 和 &lsquo;.&rsquo; 分别代表了皇后和空位。</p>
+<pre tabindex="0"><code>输入：n = 4
+输出：
+[[&#34;.Q..&#34;,
+&#34;...Q&#34;,
+&#34;Q...&#34;,
+&#34;..Q.&#34;],
+[&#34;..Q.&#34;,
+&#34;Q...&#34;,
+&#34;...Q&#34;,
+&#34;.Q..&#34;]]
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+</code></pre></li>
+<li>
+<p>解法：<strong>BackTrack回溯</strong></p>
+</li>
+<li>
+<p>原理</p>
+<blockquote>
+<p>这边我自己用的标记方式是行（后来发现行标记不需要，N皇后每行必定只有一个）列斜线一起考虑，对标记数组每次加一，回溯每次减一，大于0就是true，官方使用了三个标记，分别是列、左斜、右斜。</p>
+</blockquote>
+<blockquote>
+<p>求解时每行只记录Q的位置，在找出单个解后(curn==n)再统一进行String赋值加入列表，可以节省求解时间。</p>
+</blockquote>
+<blockquote>
+<p>难点在于标记方法和回溯标记的方式。</p>
+</blockquote>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">back_track</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span><span class="kt">int</span> <span class="n">curn</span><span class="o">,</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">marks</span><span class="o">,</span><span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span><span class="o">,</span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>		
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">curn</span><span class="o">==</span><span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">solve</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">char</span><span class="o">[]</span> <span class="n">c</span><span class="o">=</span><span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="sc">&#39;.&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">c</span><span class="o">[</span><span class="n">ans</span><span class="o">[</span><span class="n">i</span><span class="o">]]=</span><span class="sc">&#39;Q&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">String</span> <span class="n">s</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">solve</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">solve</span><span class="o">);</span>						
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//对当前行的每个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span><span class="o">(</span><span class="n">marks</span><span class="o">[</span><span class="n">curn</span><span class="o">][</span><span class="n">i</span><span class="o">]&gt;</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//设置每行的Q位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">ans</span><span class="o">[</span><span class="n">curn</span><span class="o">]=</span><span class="n">i</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">//标记列，行不需要标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">marks</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="n">i</span><span class="o">]++;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//标记斜线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">curn</span><span class="o">+</span><span class="n">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)&gt;=</span><span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">i</span><span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)]++;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)&lt;</span><span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">i</span><span class="o">+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)]++;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="n">back_track</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">curn</span><span class="o">+</span><span class="n">1</span><span class="o">,</span> <span class="n">marks</span><span class="o">,</span> <span class="n">ans</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ans</span><span class="o">[</span><span class="n">curn</span><span class="o">]=</span><span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//取消行列标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">marks</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="n">i</span><span class="o">]--;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//标记斜线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">curn</span><span class="o">+</span><span class="n">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)&gt;=</span><span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">i</span><span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)]--;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)&lt;</span><span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">marks</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">i</span><span class="o">+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">curn</span><span class="o">-</span><span class="n">k</span><span class="o">)]--;</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="nf">solveNQueens</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;();</span>		
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span><span class="o">[][]</span> <span class="n">marks</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span><span class="o">[]</span> <span class="n">ans</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">&lt;=</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">back_track</span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">marks</span><span class="o">,</span><span class="n">ans</span><span class="o">,</span><span class="n">result</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">result</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div></li>
