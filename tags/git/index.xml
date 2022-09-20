@@ -10,7 +10,7 @@
     <pubDate>Wed, 15 Jun 2022 11:57:19 &#43;0800</pubDate>
     <author>VisajiAndrevv</author>
     <guid>https://visajiandrevv.github.io/posts/blog_cmd_git/</guid>
-    <description><![CDATA[ssh克隆 git clone ssh://git@[host]:[port]/path/xxx.git bash 查找历史命令 : ctrl + r access_token登录 移除原来的远程链接: git remote remove origin 重新新增git远程链接: git remote add origin https://&lt;your token&gt;@github.com/&lt;your account&gt;/&lt;your repository&gt;.git]]></description>
+    <description><![CDATA[ssh克隆 git clone ssh://git@[host]:[port]/path/xxx.git bash 查找历史命令 : ctrl + r access_token登录 查看远程链接：git remote show 移除原来的远程链接: git remote remove origin 重新新增git远程链接]]></description>
 </item>
 </channel>
 </rss>
